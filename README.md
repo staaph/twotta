@@ -1,6 +1,7 @@
 # twotta
 
-This template should help get you started developing with Vue 3 in Vite.
+A simple Twitter Frontend Homepage created in Vue 3 and Vite.\
+See <a href="https://twotta.vercel.app/">LIVE</a> Version.
 
 ## Recommended IDE Setup
 
