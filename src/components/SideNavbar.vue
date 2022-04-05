@@ -1,6 +1,6 @@
 <template>
   <div
-    class="border-r lg:w-1/3 px-4 lg:px-14 py-4 border-lighter flex flex-col"
+    class="border-r lg:w-1/3 px-2 lg:pl-12 py-4 border-lighter flex flex-col"
   >
     <!-- Twotta Logo -->
     <a
@@ -11,7 +11,7 @@
     </a>
 
     <!-- Nav Items -->
-    <nav class="pt-6">
+    <nav class="pt-6 flex flex-col items-start">
       <div
         v-for="tab in tabs"
         @click="id = tab.id"

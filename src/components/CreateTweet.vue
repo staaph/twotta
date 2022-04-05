@@ -1,13 +1,13 @@
 <template>
-  <div class="w-full md:w-1/2 h-full overflow-y-scroll">
+  <div class="w-full md:w-7/12 h-full overflow-y-scroll">
     <!-- Add Tweet -->
     <div
       class="flex px-5 py-3 items-center border-b border-lighter justify-between"
     >
       <h1 class="text-xl font-bold">Home</h1>
     </div>
-    <div class="border-b-8 border-lighter flex px-3 py-3">
-      <div class="flex-none">
+    <div class="border-b-8 border-lighter sm:flex px-3 py-3">
+      <div>
         <UserIcon class="w-11 h-11" />
       </div>
       <form v-on:submit.prevent="addNewTweet" class="w-full px-3 relative">
@@ -15,18 +15,25 @@
           v-model="tweet.content"
           name="tweetContent"
           placeholder="What's up?"
-          class="mt-3 pb-3 w-full focus:outline-none resize-none"
+          class="mt-1 sm:mt-3 pb-6 w-full focus:outline-none resize-none"
         />
-        <div class="flex items-center">
+        <div class="flex flex-row pt-4">
           <PhotographIcon
-            class="text-lg text-blue mr-4 h-6 w-6 cursor-pointer"
+            class="text-lg text-blue mr-1 sm:mr-4 h-6 w-6 cursor-pointer"
           />
-          <PollIcon class="text-lg text-blue mr-4 h-6 w-6 cursor-pointer" />
-          <EmojiIcon class="text-lg text-blue mr-4 h-6 w-6 cursor-pointer" />
+          <PollIcon
+            class="text-lg text-blue mr-1 sm:mr-4 h-6 w-6 cursor-pointer"
+          />
+          <EmojiIcon class="text-lg text-blue h-6 w-6 cursor-pointer" />
+          <p
+            class="absolute bottom-0.5 right-20 pr-1 sm:p-0 sm:right-24 text-xs sm:text-sm"
+          >
+            {{ characterCount }} / 140
+          </p>
         </div>
         <button
           type="submit"
-          class="h-10 px-4 text-white font-semibold bg-blue hover:bg-darkblue focus:outline-none rounded-full absolute bottom-0 right-0"
+          class="h-10 scale-90 px-4 text-white font-semibold bg-blue hover:bg-darkblue focus:outline-none rounded-full absolute bottom-0 right-0"
         >
           Twoot
         </button>
@@ -34,7 +41,7 @@
     </div>
     <!-- End Add Tweet -->
     <!-- Tweet section -->
-    <div class="flex flex-col-reverse">
+    <div class="flex flex-col-reverse break-all">
       <div
         v-for="tweet in tweets"
         :key="tweet"
@@ -104,8 +111,17 @@ export default {
   },
   methods: {
     addNewTweet() {
-      this.tweets.push({ content: this.tweet.content });
-      this.tweet = { content: '' };
+      if (this.tweet.content.length != 0) {
+        this.tweets.push({ content: this.tweet.content });
+        this.tweet = { content: '' };
+      } else {
+        return;
+      }
+    },
+  },
+  computed: {
+    characterCount() {
+      return this.tweet.content.length;
     },
   },
 };

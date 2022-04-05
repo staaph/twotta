@@ -1,9 +1,9 @@
 <template>
   <div
-    class="md:flex md:flex-col sm:w-1/3 items-center hidden h-full border-l border-lighter py-2 px-6 overflow-y-scroll"
+    class="md:flex md:flex-col sm:w-1/3 hidden h-full border-l border-lighter py-2 px-6 overflow-y-scroll"
   >
     <!-- SEARCHBAR -->
-    <div class="flex items-center w-full justify-center mb-4">
+    <div class="flex w-full justify-center mb-4">
       <div class="relative w-full block">
         <div
           class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none text-gray-500"
