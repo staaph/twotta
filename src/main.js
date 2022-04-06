@@ -4,10 +4,13 @@ import './index.css';
 
 import App from './App.vue';
 import router from './router';
-import VueMeta from 'vue-meta';
+import { createHead } from '@vueuse/head';
 
 const app = createApp(App);
-app.use(VueMeta);
+const head = createHead();
+
+app.use(head);
+
 app.use(createPinia());
 app.use(router);
 
