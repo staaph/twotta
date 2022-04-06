@@ -16,5 +16,9 @@ export default {
     SideNavbar,
     TrendSidebar,
   },
+  metaInfo: {
+    title: 'Twotta',
+    content: 'A Vue 3 Twitter Clone',
+  },
 };
 </script>

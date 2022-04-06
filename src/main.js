@@ -4,9 +4,10 @@ import './index.css';
 
 import App from './App.vue';
 import router from './router';
+import VueMeta from 'vue-meta';
 
 const app = createApp(App);
-
+app.use(VueMeta);
 app.use(createPinia());
 app.use(router);
 
