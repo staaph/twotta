@@ -1,9 +1,7 @@
 <template>
   <div class="w-full md:w-7/12 h-full overflow-y-scroll">
     <!-- Add Tweet -->
-    <div
-      class="flex px-5 py-3 items-center border-b border-lighter justify-between"
-    >
+    <div class="flex px-5 py-3 items-center border-b border-lighter justify-between">
       <h1 class="text-xl font-bold">Home</h1>
     </div>
     <div class="border-b-8 border-lighter sm:flex px-3 py-3">
@@ -11,30 +9,18 @@
         <UserIcon class="w-11 h-11" />
       </div>
       <form v-on:submit.prevent="addNewTweet" class="w-full px-3 relative">
-        <textarea
-          v-model="tweet.content"
-          name="tweetContent"
-          placeholder="What's up?"
-          class="mt-1 sm:mt-3 pb-6 w-full focus:outline-none resize-none"
-        />
+        <textarea v-model="tweet.content" maxlength="140" name="tweetContent" placeholder="What's up?"
+          class="mt-1 sm:mt-3 pb-6 w-full focus:outline-none resize-none" />
         <div class="flex flex-row pt-4">
-          <PhotographIcon
-            class="text-lg text-blue mr-1 sm:mr-4 h-6 w-6 cursor-pointer"
-          />
-          <PollIcon
-            class="text-lg text-blue mr-1 sm:mr-4 h-6 w-6 cursor-pointer"
-          />
+          <PhotographIcon class="text-lg text-blue mr-1 sm:mr-4 h-6 w-6 cursor-pointer" />
+          <PollIcon class="text-lg text-blue mr-1 sm:mr-4 h-6 w-6 cursor-pointer" />
           <EmojiIcon class="text-lg text-blue h-6 w-6 cursor-pointer" />
-          <p
-            class="absolute bottom-0.5 right-20 pr-1 sm:p-0 sm:right-24 text-xs sm:text-sm"
-          >
+          <p class="absolute bottom-0.5 right-20 pr-1 sm:p-0 sm:right-24 text-xs sm:text-sm">
             {{ characterCount }} / 140
           </p>
         </div>
-        <button
-          type="submit"
-          class="h-10 scale-90 px-4 text-white font-semibold bg-blue hover:bg-darkblue focus:outline-none rounded-full absolute bottom-0 right-0"
-        >
+        <button type="submit"
+          class="h-10 scale-90 px-4 text-white font-semibold bg-blue hover:bg-darkblue focus:outline-none rounded-full absolute bottom-0 right-0">
           Twoot
         </button>
       </form>
@@ -42,11 +28,7 @@
     <!-- End Add Tweet -->
     <!-- Tweet section -->
     <div class="flex flex-col-reverse break-all">
-      <div
-        v-for="tweet in tweets"
-        :key="tweet"
-        class="w-full p-4 border-b hover:bg-lighter flex"
-      >
+      <div v-for="tweet in tweets" :key="tweet" class="w-full p-4 border-b hover:bg-lighter flex">
         <div class="flex-none mr-3">
           <UserIcon class="h-12 w-12 rounded-full flex-none" />
         </div>
